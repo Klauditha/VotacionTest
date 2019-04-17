@@ -1,24 +1,12 @@
 <?php  
     
-    require_once ("conexion.php"); 
+    require_once ("includes/conexion.php"); 
     $conn=conectarBD();  
 
     $regiones=obtenerRegiones($conn);
     $comunas=obtenerComuna($conn);
     $candidatos=obtenerCandidato($conn);
-    ///Procesando regions
-    $vars_regiones = array();
-    $vars_candidatos = array();
-    $vars_comunas = array();
-    while ($row = pg_fetch_row($regiones)) {
-        array_push($vars_regiones, $row[1]); }
-     while ($row = pg_fetch_row($candidatos)) {
-        array_push($vars_candidatos, $row[1]);}
-    while ($row = pg_fetch_row($comunas)) {
-            array_push($vars_comunas, $row[1]);
-    }
 
-   
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,23 +18,10 @@
 
 <script>   
 $( document ).ready(function() {
-    ///Se convierten los valores obtenidos en php a jv para agregar a combobox
-   /* var arrayJS=<?php echo json_encode($vars_regiones);?>;
-    arrayJS.forEach(element => {
-    $("#cmbRegion").append(new Option(element, element));
-    });
-    arrayJS=<?php echo json_encode($vars_candidatos);?>;
-    arrayJS.forEach(element => {
-    $("#cmbCandidato").append(new Option(element, element));
-    });
-    arrayJS=<?php echo json_encode($vars_comunas);?>;
-    arrayJS.forEach(element => {
-    $("#cmbComuna").append(new Option(element, element));
-    });
-*/
+   
     /* Comuna */    
     $.ajax({
-        url: "obtenercomuna.php",
+        url: "includes/obtenercomuna.php",
         type: "get",
         data: "" ,
         success: function (response) {
@@ -59,7 +34,7 @@ $( document ).ready(function() {
 
     /* Region */    
     $.ajax({
-        url: "obtenerregion.php",
+        url: "includes/obtenerregion.php",
         type: "get",
         data: "" ,
         success: function (response) {
@@ -73,7 +48,7 @@ $( document ).ready(function() {
     
     /* Candidato */    
     $.ajax({
-        url: "obtenercandidato.php",
+        url: "includes/obtenercandidato.php",
         type: "get",
         data: "" ,
         success: function (response) {
