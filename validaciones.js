@@ -1,3 +1,46 @@
+$( document ).ready(function() {
+  
+	/* Comuna */    
+	$.ajax({
+			url: "includes/obtenercomuna.php",
+			type: "get",
+			data: "" ,
+			success: function (response) {
+					$("#cmbComuna").html(response);
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+			console.log(textStatus, errorThrown);
+			}
+	});
+
+	/* Region */    
+	$.ajax({
+			url: "includes/obtenerregion.php",
+			type: "get",
+			data: "" ,
+			success: function (response) {
+					$("#cmbRegion").html(response);
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+			console.log(textStatus, errorThrown);
+			}
+	});
+	
+	/* Candidato */    
+	$.ajax({
+			url: "includes/obtenercandidato.php",
+			type: "get",
+			data: "" ,
+			success: function (response) {
+					$("#cmbCandidato").html(response);
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+			console.log(textStatus, errorThrown);
+			}
+	});
+});
+
+
 function Valida_Rut( Objeto )
 {
 	var tmpstr = "";
