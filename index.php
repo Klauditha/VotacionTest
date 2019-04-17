@@ -20,7 +20,7 @@
 </head>
 
 <body style="padding: 20px;">
-    
+<div>   </div>    
     <h2>Formulario de Votacion</h2>
     <form  name="f1" method="post"  action="insertar_votacion.php" >
 <table>
